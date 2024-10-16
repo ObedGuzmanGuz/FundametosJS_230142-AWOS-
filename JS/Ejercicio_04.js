@@ -185,3 +185,99 @@ console.log("Ahora vamos insertar a  Daniel Francisco  en los elementos de la po
 estudiantes.splice(1,0, "Daniel Francisco")
 console.log("Resultado en: ")
 console.table(estudiantes);
+ 
+
+
+console.log("%c10.- Metodos para la manipulacion de arreglos INmutables", style_console)
+
+let signosZodiacales=["Aries","Tauro", "Geminis", "Cancer","Leo", "Virgo", "Libra", "Escorpio","Sagitario", "Capricornio", "Acuario","Piscis",]
+
+//congelamos el arreglo volviendop INMUTABLE
+
+Object.freeze(signosZodiacales);
+// signosZodiacales.push("Ofiuco");
+// signosZodiacales.unshift()
+// signosZodiacales.splice(6,2) //elimina despues de la posicion 6, virgo y escorpio, pero ninguna se ejecuta porque nuestro arreglo es inmutable
+
+
+let [signo1,,signo3,,,,signo7,,,,,]=signosZodiacales;
+console.log(`El primer signo zodiacal es: ${signo1}`)
+console.log(`El primer signo zodiacal es: ${signo3}`)
+signo7="Jugo    "
+console.log(`El primer signo zodiacal es: ${signo7}`)
+
+console.log("%c11.- Filtrado de elementos dentro de un arreglo utilizando el metodo FILTER", style_console)
+//el metodo filter hace es un metodo que recorre los elementos de un arreglo haciendo alguna tarea en especifico, lo que tenemos que considerar es que este 
+//nuevo arreglo  resultante es un objeto nuevo que puede ser mutable
+estudiantes.push("Angela Aguilar");
+estudiantes.push("Esther Gordillo");
+estudiantes.push("Mona La loca")
+estudiantes.push("Armando Torres ")
+estudiantes.push("Violeta Rosa")
+estudiantes.push("Paulino Marquez")
+
+console.table(estudiantes)
+Object.freeze(estudiantes);
+console.log("Filtrando los primeros 5 elementos");
+let nuevoEstudiantes= estudiantes.filter((estudiante , index) => index<5   );
+console.table(nuevoEstudiantes);
+console.table(filtraPrimeros5(estudiantes));
+
+
+// filtrar a los estudiantes que su nombre  tenga mas de 15 caracteres 
+let nuevoEstudiantesNombre= estudiantes.filter((estudiante) => estudiante.length>5);
+
+console.table(nuevoEstudiantesNombre);
+
+// Intentamos modificar el arreglo inmutable
+/* estudiante.pop()
+console.table(estudiantes);*/
+
+//Intemos modificar el nuevo arreglo que no ha sido congelado
+
+
+
+nuevoEstudiantes.unshift("Diego Tecorralco");
+console.table(nuevoEstudiantes);
+
+function filtraPrimeros5(arregloEstudiante)
+{
+
+let listaFiltrada= []
+for(let i=0; i<5; i++)
+{
+    listaFiltrada.push(arregloEstudiante[i])
+}
+
+return listaFiltrada;
+
+}
+
+
+//Filtrado de Datos - Transformando los datos
+console.log("%c12 - Filtrato de elemtos dentro de un arreglo utilizando el metodo map, en el que necesitemos transformarlos", style_console);
+
+console.log("Imprimos los elementos actuales de signosZodiacales: ")
+console.table(signosZodiacales);
+// que podemos hacer su necesitamos el  mismo arreglo pero ahora con todos sus elemntos con letras Mayusculas
+console.table(signosZodiacales.map(signoZodiacal=> signoZodiacal.toUpperCase()));
+
+//Reduccion de elementos de un arreglo, se usa cuando debemos hacer operaciones matematicas o cuantitativas a un arreglo, como obtener totales, la idea es reducir la lista a un valo0r mas simplicado.
+
+const costosListaCompras=[15,52.50,16.90,32.50,28,105,45.2,94.10]
+// Como podemos calcular el total de una lista de costos de un carrito de compras
+console.log("Los precios son :")
+console.table(costosListaCompras)
+console.log(`El total de la compra es: ${costosListaCompras.reduce((total,precio)=> total+precio,0).toFixed(2)}`)
+
+
+
+
+
+
+//para que sirve un objeto inmutable
+
+
+
+
+//Splice recortar,modificar o reemplazar elementos existentres,asi como muta los elementos
