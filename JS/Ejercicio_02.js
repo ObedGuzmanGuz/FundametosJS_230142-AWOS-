@@ -312,3 +312,14 @@ console.log(
     );
 // const descuento = null
 // console.log(typeof descuento)
+
+// Fuction (Funciones)
+console.warn("-----------Tipo de Dato- Fuction(Funciones)");
+
+
+//Declaramos una funcion que nos permita recibir un  parametro en este caso el nombre de la persona a saludar, y le enviamos un saludo, esta funcion a una constante.
+
+const saludar=  function(nombre){return `Hola, ${nombre}!`}
+console.log(saludar('Obed'));
+// Que tipo de dato tiene esta constante
+console.log(`El tipo de dato de la constante saludar es: ${typeof(saludar)}`)
