@@ -94,3 +94,47 @@ console.log(`Elemento en la posicion [1][2] (¿Es María mayor de edad?): ${matr
 
 // Funciones y Métodos de Arreglos
 // Los metodos de un objeto siempre son invocados usando un . y al termino se delimitan los parametros entre (), en caso de que no lleve (), no es un método sino una propiedad
+
+console.log("%c4.- Funciones o Métodos de los Arreglos (Array Methods or Array Functions", style_console);
+console.log("¿Como saber cual es el tamaño de un arrego?")
+console.log(`meses es un arreglo de tamaño: ${mesesAnio.length}`)
+console.log(`arregloMixto es un arreglo de tamaño: ${arregloMixto.length}`)
+console.log(`¿Qué pasa con los multidimensionales ?`)
+console.log(`matriz es un arreglo de tamaño: ${matriz.length}`)
+console.log("mmm, eso me da el tamaño de número de filas de la matriz, pero cómo saber el numero de columnas?")
+console.log(`la matriz regular tiene un número de ${matriz[0].length}`)
+console.log("Y para las irregulares?")
+// Para saber la dimensión de una matriz irregular podemos hacer el uso de ciclo
+let numeroFilas = matrizIrregular.length
+for (let i = 0;i<numeroFilas; i++)
+console.log(`La longitud de la fila ${[i]} es = ${matrizIrregular[i].length}`)
+
+
+console.log("%c5.- Agregar un nuevo elemento a un arreglo (PUSH)",style_console);
+
+let estudiantes = ["Angeles Michelle", "Angel Hernandez", "Jenny Cruz"," Daniel Garcia ","Matiass Granillo"]
+console.log("Los elementos actuales del arreglo son: ")
+console.table(estudiantes);
+console.log(`Agregamos a un nuevo estudiante llamado: Obed Guzmán`)
+estudiantes.push("Obed Guzmán")
+console.log(`Después de agregarlo los elementos del arreglo son: `)
+console.table(estudiantes)
+
+console.log("¿Qué pasa con los Mixtos?")
+console.log("El arregloMixto actualmente tiene los siguientes elementos: ")
+console.table(arregloMixto)
+console.log("Agregamos la palabra: \"Hola\", como nuevo elemento")
+arregloMixto.push("Hola");
+console.log("Y también agregamos el numero -5468817875487448415.423412, siendo este un BigInt")
+arregloMixto.push(BigInt(-5468817875487448415.423412))
+console.log("Después de esta dos operaciones el arreglo queda con los siguientes elementos: ")
+console.table(arregloMixto)
+
+
+console.log("%c6.- Agregar un nuevo elemento a un arreglo (UNSHIFT) en la posición inicial",style_console)
+console.table(estudiantes)
+console.log("Ahora agregamos a Obed Guzman, al comienzo del arreglo.")
+estudiantes.unshift("Obed Guzman")
+console.log("La lista atual es  :")
+console.table(estudiantes)
+//////////////////////////////////////////////////////////////////
