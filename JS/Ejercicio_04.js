@@ -138,3 +138,50 @@ estudiantes.unshift("Obed Guzman")
 console.log("La lista atual es  :")
 console.table(estudiantes)
 //////////////////////////////////////////////////////////////////
+
+console.log("%c7.- Eliminar el elemento de un arreglo en la última posición (POP)",style_console)
+console.log("El arreglo tiene los siguientes elementos: ")
+console.table(estudiantes);
+console.log("Para este caso eliminaremos a Obed Guzmán, en la última posición. ");
+estudiantes.pop()
+console.log("Después de eliminar el elemento el arreglo quedo de la siguiente manera:")
+//
+console.table(estudiantes)
+
+//shif elimina siempre en la posicion 0
+console.log("%c8.- Eliminar el elemento de un arreglo en la primera posición (SHIFT)",style_console)
+console.log("El arreglo tiene los siguientes elementos:")
+console.table(estudiantes)
+console.log("Para este caso eliminaremos a Ignacio Allende, en la primera posición.")
+estudiantes.shift();
+console.log("Después de eliminar el elemento del arreglo quedo de la siguiente manera: ")
+console.table(estudiantes);
+
+console.log("%c9.- Modificar un arreglo en un arreglo nuevo con posiciones definidas (SPLICE)", style_console)
+console.log("El arreglo original tiene los elementos:")
+console.table(estudiantes);
+console.log("Dividir el arreglo en uno nuevo elimando ciertos elementos en base a su posicion")
+
+//Cuando la funcion splice reibe solo un parametro elimanara los elemtos de esa posicion en adelante
+estudiantes.splice(2);
+console.table(estudiantes)
+
+// Cuando la funcion splice recibe dos parametros  se eliminana todos elementos que no esten  en este rango
+estudiantes.push("Oded Sanchez");
+estudiantes.push("Allen Hybnek")
+estudiantes.push("Felipe Cruz");
+estudiantes.push("Milena Rivera");
+estudiantes.push("Fran Marquez")
+console.log("Se han creado 5 nuevos  estudiantes,por lo que el arreglo es:")
+console.table(estudiantes);
+
+console.log("Ahoara ya tenemos los elementos suficientes para aplicar el metodo splice con dos parametros que seran 3,5")
+estudiantes.splice(3,5)
+console.log("Resultado es: ")
+console.table(estudiantes);
+
+
+console.log("Ahora vamos insertar a  Daniel Francisco  en los elementos de la posicion 0 y 1")
+estudiantes.splice(1,0, "Daniel Francisco")
+console.log("Resultado en: ")
+console.table(estudiantes);
