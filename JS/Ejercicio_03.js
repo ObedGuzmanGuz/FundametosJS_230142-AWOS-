@@ -166,3 +166,93 @@ delete Pedido.Tipopago;
 console.log("Objeto despues de ser modifcado")
 console.table(Pedido)
 
+
+console.log("%c7.- Métodos para controlar la mutabilidad de los objetos, Congelacion (FREEZE)", style_console);
+
+//Si deseamos permitir que los objetos sean modificados ni en estructura, ni en valor, utilizaremos el metodo FREEZE (congelar)
+
+console.log('La estructura atual del objeto Comprador es: ' );
+console.table(Comprador)
+Object.freeze(Comprador)
+//Inteneramos agregar, eliminar o modificar los valores de sus propiedades
+Comprador.FechaUltimaCompra= "05/09/2024 10:15:25"
+delete Comprador.Tipo
+Comprador.Direccion = "Calle 16 de septiembre #102, col. Manantiales, Huachinango, Puebla,Mexico";
+console.log('Verificamos si se realizaron los cambios en el objeto Comprador: ')
+console.table(Comprador)
+
+
+console.log("%c8.- Metodos para controlar la mutailidad de lo Objetos, Sellado (SEAL",style_console);
+// Si embargo, en el caso que deseamos podeer podificar los valores de las propiedades del Objeto, pero no su estructura, usaremos SEAL
+Object.seal(Pedido)
+//Intentamos modificar su estructura
+Pedido['FechaPedido']="25/09/2024 11:05:13"
+delete Pedido['Cantidad']
+console.log('Vericamnos si realizaron los cambios en el objeto PEDIDO')
+console.table(Pedido);
+// Ahora intentamos modificar el valor de las propiedades
+Pedido.Cantidad= 12
+console.log('Verificamos si se realizaron los cambios en el objeto Pedido')
+console.table(Pedido)
+
+//Operaciones sobre objetos
+
+//Desustructuracion de 2 o mas objetos 
+console.log("%c9. - Desestructuracion de 2 o mas objetos", style_console);
+
+let {Precio:productoPrecio,SKU: ProductoSKU, Marca: ProductoMarca}=Producto;
+let {Correo:clientecorreo,PaisdeOrigen: clientePais, SaldoActual:clientesaldo, Tipo: clienteTipo}=Comprador;
+
+//Transformar valores cuantitativos en cualitativos
+if(productoPrecio>2000)
+    productoPrecio="Caro";
+else
+productoPrecio="Barato";
+
+
+if(clientesaldo>0)
+    clientesaldo="A favor";
+else if(clientesaldo<0)
+clientesaldo="En contra";
+else
+clientesaldo="Sin deuda";
+
+// Transformar valores cualitativos en cuantitativos
+let clienteNivel;
+
+if(clienteTipo=="Premium")
+    clienteNivel=1
+if(clienteTipo=="Freemium")
+    clienteNivel=2
+
+if(clienteTipo=="No identificado")
+    clienteNivel=3
+
+
+//Clasificamos al cliente por su País de origen
+
+if(clientePais=="Mexico")
+clientePais="Nacional"
+else
+clientePais="Extranjero"
+
+
+
+// OLE - Object Literal Ennhacemnet
+
+
+
+let datosClientePromociones ={clientecorreo, clientePais, clienteNivel, clientesaldo,ProductoMarca,productoPrecio
+}
+
+
+//El nuevo objeto que creamos seria un ejemplo de la informacion que enviaremos al area de Marketing para la difusion de promociones
+
+console.log("Los datos del cliente y sus habitos de compra son: ")
+console.table(datosClientePromociones)
+
+
+
+
+//operaciones sobre objetos
+// Union de objetos
