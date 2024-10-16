@@ -292,3 +292,210 @@ for(let i=meses.length-1; i>=0;i--){
 
 console.log(meses[i])
 }
+ 
+
+console.log("%c7.- Ciclo Condicionales -(While)",style_console);
+//Estos ciclos (BUCKLE) dependen de una condicion para continuar ejecuntadose
+let finDeSemana= false;
+let mensaje = "";
+let j =0;
+
+while(j< dias.length){
+
+    switch(j){  //Usamos J para que coincida con el indice 
+    case 0:
+    finDeSemana= true;
+     mensaje= "Mormingoooooooooo. ZzZZzZz"
+    break;
+    
+    case 1:
+    finDeSemana= false;
+     mensaje= "San Lunes a chyambiaarrr"
+    break;
+    
+    case 2:
+    finDeSemana= false;
+     mensaje= "Segundo dia Martes de weba"
+    break;
+    
+    
+    case 3:
+    finDeSemana= false;
+     mensaje= "Miercoles de hacer tarea";
+    break;
+    
+    
+    case 4:
+    finDeSemana= false;
+     mensaje= "Jueves de racismo";
+    break;
+    
+    case 5:
+    finDeSemana= false;
+     mensaje= "Viernes de dejar los pendientes para el domingo";
+    break;
+    
+    
+    case 6:
+    finDeSemana= false;
+     mensaje= "Sabdo de weboniar todo el día";
+    break;
+    
+    
+    }
+
+    if(!finDeSemana)
+    {
+console.log(`Dias: ${dias[j]}`);
+console.log(`Mensaje del dia: ${mensaje}`);
+
+    }
+    j++;
+    }
+
+    console.log("%c8.- Ciclo condicionales que se ejecuta al menos una vez - (Do While)",style_console);
+
+// Simulamos una lista de episodios de una temporada 
+
+let episodios= [
+
+
+"Episodio 1:  The Fuller Dogfight",
+
+"Episodio 2:  The Flatwoods Monster ",
+
+
+"Episodio 3:  The Lubbock Lights "
+
+];
+let indice=0;
+let continuarViendo= true ;
+// Esta variable simula la decision del usuario de continuar viendo
+do{
+
+console.log(`Reproduciendo ${episodios[indice]}`)
+//Simulamos la reproduccion del episidio
+indice++;
+
+//Simulamos una pregunta al usuario si desea seguir viendo
+
+if(indice < episodios.length){
+continuarViendo = confirm("¿Deseas continuar con el siguiente episodio?");
+}else{
+    continuarViendo = false; // Cuando se acaba la lista de epuisodios
+}
+} while (continuarViendo && indice < episodios.length);
+
+console.log("Fin de la reproduccion.");
+
+// Ciclo para reccorrer objetos iterables como mapás, arreglos, cadenas y conjunto de datos.
+
+console.log("%c9. - Ciclos para correr elementos finitos (FOR....OF",style_console);
+let seriesTrendig =[
+
+
+
+{nombre: "The proyect blue books", temporadas: 2, totalReprods: "15.0 M"},
+
+{nombre: "Kingdom", temporadas: 2, totalReprods: "6.0 M"},
+
+{nombre: "The walking dead", temporadas: 16,totalReprods: "11.0 M"},
+
+
+{nombre: "El mostruo de la vieja seul", temporadas: 2,totalReprods: "5.0 M"},
+
+{nombre: "Breakind bad", temporadas: 5,totalReprods: "13.0 M"},
+
+
+{nombre: "Stranger This", temporadas: 4,totalReprods: "21.0 M"}
+
+];
+
+//Usando for.... of para recorrer la lista
+for(let serie of seriesTrendig){  //de lado izquiero va el singular y derecho plural
+console.log(`Series: ${serie.nombre}, Temporadas: ${serie.temporadas}`);
+
+}
+
+try{
+console.log( `La ultima serie leida fué : ${serie.nombre}`) // No va a funcionar por la variable serie ya no existe ya que si alcance solo estuvo durante el ciclo
+}
+catch(error)
+{
+
+console.log("Mensaje de error "+error.message);
+
+}
+
+
+
+console.log("%c10.- Ciclos para recorrer las propiedades de elementos finitos- (FOR...IN)", style_console);
+
+
+//Usando For...in para recorrer cada serie
+
+for(let i in seriesTrendig){
+console.log(`Serie ${parseInt(i)+1}: `);
+for(let propiedad in seriesTrendig[i]){
+console.log(`${propiedad}: ${seriesTrendig[i][propiedad]}`)
+
+}
+console.log('------------------------------')
+
+
+
+}
+
+
+
+console.log("%c11.- Ciclos ininterrumpidos para cada uno de los elementos del arreglo 8FOR EACH) ", style_console);
+
+//Lista de series de TV trendig con temporadas, viewer y reprodocciones
+
+let seriesTreading2 =[
+{nombre: "The walking dead", temporadas: 3, viewers: 3000, reproducciones:1.200}, //en el for ech no break ni continue
+{nombre: "The boys", temporadas: 4 ,viewers: 6000, reproducciones:4.200},
+
+
+{nombre: "Loki", temporadas: 3 ,viewers: 12000, reproducciones:45000},
+
+
+{nombre: "Los pollos hermanos", temporadas: 3 ,viewers: 2000, reproducciones:15000},
+{nombre: "Jeffry Damer", temporadas: 1 ,viewers: 2000, reproducciones:4000}
+
+
+]
+
+//Usando forEch  para recorrer cada serie y calcular la calidicacion
+
+seriesTreading2.forEach((serie, index) =>{
+let calidicacion = (serie.reproducciones / serie.viewers).toFixed(2);// calculando la calificacion y la rendodea a 2 decimales
+
+console.log(`serie ${index+1}`);
+
+console.log(`Nombre: ${serie.nombre}`);
+console.log(`Temporadas ${serie.temporadas}`);
+
+console.log(`Viewers: ${serie.viewers}`);
+console.log(`Reproducciones: ${serie.reproducciones}`);
+console.log(`Calificacion: ${calidicacion}`);
+console.log("-----------------------------");
+})
+// Usando Filter para filtrar y map para transformar la informacion.
+// Listas de series que queremos verificar
+
+
+let seriesDeseadas= ["Hombres de negro", "Loki", "Las tortugas Ninja", "Los pollos hermanos","Jeffry Damer"];
+
+// Usando map e includes para filtrar y obtener los nombres de series con 3 temporadas
+let seriesConTresTemporadas = seriesTreading2
+.filter(serie =>serie.temporadas <=3 ) //Filtramos las series que tienen 3 temporadas
+.map(serie => serie.nombre)  //Obtenemos solo los nombres de esas series
+.filter( nombre => seriesDeseadas.includes(nombre)); //Filtramos las que estan en las lista de series deseadas
+
+//Mostrar los resultados
+
+console.log("Series con 3 temporadas que estan en la lista deseada: ")
+console.log(seriesConTresTemporadas);
+
+
