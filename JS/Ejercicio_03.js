@@ -122,3 +122,47 @@ Unidades, con un costo total de: ${costo_compra}
 
 if(costo_compra< Cliente_SaldoActual)
 console.log("El cliente tiene saldo suficiente");
+
+//Actualizar el valor de Objetos
+console.log("%c4.-Actualizacion de los valores de las propiedades de un objeto", style_console);
+console.log(`El objeto actualmente tiene los siguientes valores`)
+console.log(JSON.stringify(Producto2, null,2));
+Producto2.Disponibilidad="Si";
+let nuevoTipoDisponibilidad= typeof(Producto2.Disponibilidad)
+console.log(Producto2);
+console.log(`El nuevo de dato de la disponibilidad es:${nuevoTipoDisponibilidad}`)
+
+//Convierte el Objeto a una cadena para evitar problemas con la referencia
+console.log('Por cuestiones de inflacion el costo del producto ha cambiado y debe ser actualizado')
+Producto.Precio=19000.00
+console.log(`Los nuevos valores del producto son: `)
+console.log(Producto2);
+
+
+
+
+
+//Agregar nuevas propiedades a un objeto  existente
+console.log("%c5.-Agregacion de propiedades de un objeto", style_console);
+console.log("Objeto antes de ser modificado:")
+console.table(Comprador);
+//Agregando propiedades
+Comprador['Direccion']= "Av. 05 de Mayo #25, interior 4A, Xicotepec de Juarez, Puebla,Mexico"
+Comprador['Tipo']= "Premium"
+Comprador['Estatus']= "Inactivo"
+Comprador['TotalCompras']= 50000.00
+console.log("Objetos despues de ser modificado")
+console.table(Comprador)
+
+
+//Eliminar propiedades de un objeto existente
+console.log("%c6.- Eliminacion de propiedades de un objeto (MUTACION)", style_console)
+console.log("Objeto antes de ser modificado")
+
+
+console.table(Pedido)
+//Eliminamos la propiedad de Tipó de pedido
+delete Pedido.Tipopago;
+console.log("Objeto despues de ser modifcado")
+console.table(Pedido)
+
