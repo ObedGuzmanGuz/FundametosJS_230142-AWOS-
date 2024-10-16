@@ -145,3 +145,150 @@ case (antioNacimiento>1980 && antioNacimiento<=1994):
 console.log(`Dado que nacio en el año 2005 soy de la generacion: ${asignaGeneracion(1982)}`);
 
 
+
+console.log("%c4. -Manejo de excepciones /(TRY/CAHC)", style_console);
+
+console.log("Intetamos dividir : 0/10, el resultado es:")
+
+
+try{   //intenta
+
+let result= 0/10;  //dividir 0 entre un entero
+console.log(result);
+}
+catch (error)
+{
+
+
+console.log("Ocurrio un error: "+error.message);
+}
+
+console.log(" Intetamos dividir : 10/0, el resultado es:");
+try{
+
+    let result= 10/0;
+    console.log(result)
+
+    
+}catch(error)
+{
+    console.log("Ocurrio un error: "+ error.message);
+}
+
+
+
+
+console.log(" Intetamos dividir : a/10, el resultado es:");
+try{
+
+
+let result= "a"/10;
+console.log(result)
+
+}
+catch(error)
+
+{
+
+console.log("Ocurrio un error :"+ error.message)
+
+}
+
+
+
+console.log(" Intetamos dividir : a/10, el resultado es:");
+try{
+
+
+let result= a/10;
+console.log(result)
+
+}
+catch(error)
+
+{
+
+console.log("Ocurrio un error :"+ error.message)
+
+}
+console.log("Intentamos dividir : el valor de la variables x/ entre el valor de la variable y, el resultado es:")
+
+
+
+
+try{
+
+let x=8, y=2, result=x/y;
+console.log(result)
+
+}
+catch(error)
+{
+console.log("Ocurrio un error: "+error.message);
+
+
+
+}
+
+
+console.log("%c5.- Control de ciclos (Break / Continue) ", style_console);
+
+// En alguna ocasiones sera importante detener un ciclo de manera abrupta para controlar casos especiales en un ciclo...
+
+console.log("Vamos a contar del 1 al 10...")
+
+for(let num=1; num<11; num++){
+
+console.log(num);
+
+}
+console.log("Ahora necesitamos que si llegas al 7 pares de contar.... Suponiendo que solo por hoy es de mala suerte")
+
+
+for(num = 1; num<=10; num++){
+if(num==7)
+break;
+else
+console.log(num)
+
+
+}
+
+
+console.log("Ahora necesitamos que si llegas al 7 te saltes ese numero y continues")
+
+
+for(num=1; num<=10;num++){
+
+if(num==7)
+{
+continue;
+
+}
+console.log(num);
+}
+
+console.log("%c6.- Ciclo Iterativo - (FOR) ", style_console);
+
+//controlan el flujo de control de las instrucciones que se les da a la computqadora
+//Recorre de manera iterativa (i), de incremental o decremental
+
+
+
+console.log("Los dias de la seman son en orde ascedentes son: ")
+
+let dias= ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"]
+
+for( let i=0; i<dias.length;i++){
+console.log(dias[i]);
+
+}
+
+
+console.log(" Ahora vamos a imprimir los meses en orden descendente")
+const meses= ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+
+for(let i=meses.length-1; i>=0;i--){
+
+console.log(meses[i])
+}
