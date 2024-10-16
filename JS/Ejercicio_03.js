@@ -256,3 +256,186 @@ console.table(datosClientePromociones)
 
 //operaciones sobre objetos
 // Union de objetos
+
+
+
+console.log("%c10.- Union de objetos usando el metodo de asignacion (ASSING)",
+style_console);
+
+
+console.log("Imprimimos la estructura y valores del Objeto Producto")
+console.table(Producto);
+
+console.log("Imprimimos la estructura y valores del Objeto PEDIDO")
+console.table(Pedido);
+
+
+//Suponiendo que el usuario ya realiazo el pago el pedido se convertira en una VENTA que requiere informacion de ambos objetos
+
+
+//PREGUNTA DE EXAMEN------------------------------------------------------------------------------------------------------------------------------
+//Importante: ASSING, no solo permite la fusion de 2 o mas objetos, tambien muta los objetos originales, perdiendo el valor original del ID en este caso
+let Producto3 = {...Producto}
+const   Venta = Object.assign(Producto3,Pedido);
+console.log("Consultamos este nuevo objeto Venta")
+console.table(Venta);
+
+
+//Union de objetos usando SPREA OPERATIR para evitar la perdida de informacion con objetos que comparten el mismo nombre en sus propiedades
+console.log("%c11. -Union de Objetos usando el SPREAD OPERATOR (....)",style_console);
+
+// Parchamos el error, reiniciando el valor del producto ID al original
+
+//Producto.ID=100;
+
+
+console.table(Producto)
+console.table(Comprador)
+console.table(Pedido)
+
+
+let Venta2=
+{
+producto:{...Producto},
+comprador:{...Comprador},
+pedido:{...Pedido}
+}
+
+console.log("Fusionamos los 3 objetos en uno nuevo, sin perdida de informacion")
+console.table(Venta2);
+console.log(Venta2)
+
+
+
+
+// Vamos a verificar el estatus  de mutabilidad de los objetos
+console.log("Vamos a verificar el estatus de mutabilidad del objeto Pedido")
+console.log(`Esta el objeto de pedido congelado ? : ${Object.isFrozen(Pedido)}`);
+console.log(`Esta el objeto de pedido Sellado ? : ${Object.isSealed(Pedido)}`);
+
+
+console.log("Vamos a verificar el estatus de mutabilidad del objeto Comprador")
+console.log(`Esta el objeto de Comprador congelado ? : ${Object.isFrozen(Comprador)}`);
+console.log(`Esta el objeto de Comprador Sellado ? : ${Object.isSealed(Comprador)}`);
+
+
+
+console.log("Vamos a verificar el estatus de mutabilidad del objeto Comprador")
+console.log(`Esta el objeto de producto congelado ? : ${Object.isFrozen(Producto)}`);
+console.log(`Esta el objeto de producto Sellado ? : ${Object.isSealed(Producto)}`);
+
+//Modificamos la estructura de producto, agregando una nueva propiedad
+Producto['isLegacy']= true;
+console.log(Venta2);
+console.log(Venta2)
+
+
+
+
+
+
+
+
+
+
+//RETO- en sellar parcialmente un objeto
+
+
+// let spotyfyUser = {
+
+// Name: "",
+// nickname: "",
+// password: "",
+// rol:"",
+// since:"",
+// playList:["Las domingueras","Carnita Asada","Pa' trapear"] //normal, modificado o eliminado
+
+// }
+ //en establecer, sellar y congelar un objeto
+
+
+/*
+const producto= {
+
+    nombre : "Tablet",
+    precio : 300,
+    disponible: true
+}
+const produc = 
+{
+
+Nombre: "Tablet 9\"",
+ Marca : "Mac",
+Modelo:"iPad",
+costo_compra: 1150025,
+costo_venta: 15400,
+disponi: true,
+sku: Symbol("guzman"),
+colores:[ "blanco", "Negro", "Azul", "Amarillo"]
+
+}
+// Imprimir el objeto 
+console.log("%c1.-Objetos", style_console);
+
+console.warn("------Objetos --------");
+console.log(produc);
+
+
+// Los objetos tambien pueden representarse en formato tabala utilizando la funcion consle.table
+
+console.table(produc)
+
+
+// Accder a las propiedades de un objeto
+
+console.warn("---Leyendo las propiedades de un objeto y sus tipos de dato\n");
+console.log( `Nombre del Producto: ${produc.Nombre} que es del tipo: ${typeof(produc.Nombre)}`);
+console.log(`Marca: ${produc.Marca} que es del tipo ${typeof(produc.Marca)}`);
+console.log(`Costo compra: ${produc.costo_compra} que es del tipo ${typeof(produc.costo_compra)}`);
+console.log(`Costoventa : ${produc.costo_venta} que es del tipo ${typeof(produc.costo_venta)}`);
+console.log(`Disponible: ${produc.disponi} que es del tipo ${typeof(produc.disponi)}`);
+console.log(`SKU: ${String(produc.sku)} que es del tipo ${typeof(produc.sku)}`);
+console.log(`Colores: ${produc.colores} que es del tipo ${typeof(produc.colores)}`);
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
+console.log(producto)
+console.table(producto)
+
+console.log(producto.nombre)
+console.log(producto.precio)
+console.log(producto.disponible)
+
+
+
+// Destructuring
+
+const { nombre, precio, disponible }   = producto
+
+console.log(nombre)
+console.log(precio)
+console.log(disponible)
+
+// Object Literal Enhacement
+
+const autenticado = true
+const usuario= "Obed"
+
+const nuevoobjeto = {
+
+autenticado,
+usuario
+}
+
+console.table(nuevoobjeto)*/
